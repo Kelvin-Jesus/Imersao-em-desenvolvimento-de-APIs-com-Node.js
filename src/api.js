@@ -72,17 +72,17 @@ async function main() {
 
     app.auth.strategy('jwt', 'jwt', {
         key: JWT_SECRET,
-        // options: {
-        //     expiresIn: 200
-        // },
+        options: {
+            expiresIn: 20
+        },
         validate: async (data, request) => {
-            // const [ result ] = await contextPostgres.read({
-            //     username: data.username.toLowerCase(),
-            //     id: data.id
-            // });
-            // if ( !result ) {
-            //     return { isValid: false }
-            // }
+            const [ result ] = await contextPostgres.read({
+                username: data.username.toLowerCase(),
+                id: data.id
+            });
+            if ( !result ) {
+                return { isValid: false }
+            }
             return {
                 isValid: true
             }
