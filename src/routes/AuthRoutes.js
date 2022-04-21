@@ -10,6 +10,8 @@ const USER = {
     password: '1234'
 }
 
+console.log(USER)
+
 class AuthRoutes extends BaseRoute {
 
     constructor(secret, db) {
