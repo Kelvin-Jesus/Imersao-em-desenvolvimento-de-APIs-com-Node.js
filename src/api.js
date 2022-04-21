@@ -96,7 +96,7 @@ async function main() {
     ]);
 
     return console.log(await app.inject({
-        URL: '/login',
+        url: '/login',
         method: 'POST'
     }));
 
