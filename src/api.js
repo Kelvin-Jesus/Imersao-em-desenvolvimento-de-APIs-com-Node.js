@@ -95,9 +95,15 @@ async function main() {
         ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods())
     ]);
 
+    const USER = {
+        username: 'jk',
+        password: '1234'
+    };
+
     return console.log(await app.inject({
         url: '/login',
-        method: 'POST'
+        method: 'POST',
+        payload: USER
     }));
 
     await app.start();
