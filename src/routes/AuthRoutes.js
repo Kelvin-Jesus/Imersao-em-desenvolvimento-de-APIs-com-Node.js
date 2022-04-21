@@ -42,10 +42,11 @@ class AuthRoutes extends BaseRoute {
             handler: async (request, headers) => {
                 
                 const { username, password } = request.payload;
-
+                
                 const [ user ] = await this.db.read({
                     username: username.toLowerCase()
                 });
+                console.log(username, password, user)
 
                 if ( !user ) {
                     return Boom.unauthorized('User not found!');
