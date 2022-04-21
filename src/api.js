@@ -101,12 +101,7 @@ async function main() {
                 tags: ['api'],
                 description: 'Obter um token JWT',
                 notes: 'Loga o usuário',
-                validate: {
-                    payload: {
-                        username: Joi.string().required(),
-                        password: Joi.string().required()
-                    }
-                }
+                validate: {}
             },
             handler: async (request, headers) => {
                 
