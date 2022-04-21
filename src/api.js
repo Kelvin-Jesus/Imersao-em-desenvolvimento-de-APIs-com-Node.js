@@ -50,6 +50,7 @@ async function main() {
     const context = new Context(new MongoDB(connection, HeroSchema));
 
     const connectionPostgres = await Postgres.connect();
+    console.log(connectionPostgres);
     const model = await Postgres.defineModel(connectionPostgres, UserSchema);
     const contextPostgres = new Context(new Postgres(connectionPostgres, model));
 
