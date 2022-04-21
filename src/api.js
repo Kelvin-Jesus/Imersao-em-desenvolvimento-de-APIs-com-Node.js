@@ -38,7 +38,7 @@ const { assert } = require('console');
 const JWT_SECRET = process.env.JWT_KEY;
 
 const app = new Hapi.Server({
-    port: process.env.SERVER_PORT
+    port: process.env.PORT
 });
 
 const mapRoutes = (instance, methods) => {
