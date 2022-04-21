@@ -18,10 +18,6 @@ class AuthRoutes extends BaseRoute {
         this.db = db;
     }
 
-    _failAction(request, header, erro) {
-        throw erro;
-    }
-
     login() {
         return {
             path: '/login',
