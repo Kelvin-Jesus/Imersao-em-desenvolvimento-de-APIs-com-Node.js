@@ -28,5 +28,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.19.0",
     "vision": "^5.4.4"
+  },
+  "engines": {
+    "node": "12.0.0"
   }
 }
