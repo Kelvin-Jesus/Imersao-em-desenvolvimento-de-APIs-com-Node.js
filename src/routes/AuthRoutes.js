@@ -40,6 +40,8 @@ class AuthRoutes extends BaseRoute {
                 }
             },
             handler: async (request, headers) => {
+
+                console.log(request);
                 
                 const { username, password } = request.payload;
                 
