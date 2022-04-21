@@ -54,10 +54,6 @@ async function main() {
     const model = await Postgres.defineModel(connectionPostgres, UserSchema);
     const contextPostgres = new Context(new Postgres(connectionPostgres, model));
 
-    console.log(await contextPostgres.read({
-        username: 'jk'
-    }));
-
     const swaggerOptions = {
         info: {
             title: 'API Heroes - #CursoNodeBR',
@@ -81,7 +77,6 @@ async function main() {
             expiresIn: 200
         },
         validate: async (data, request) => {
-            console.log(request);
             const [ result ] = await contextPostgres.read({
                 username: data.username.toLowerCase(),
                 id: data.id
