@@ -54,6 +54,10 @@ async function main() {
     const model = await Postgres.defineModel(connectionPostgres, UserSchema);
     const contextPostgres = new Context(new Postgres(connectionPostgres, model));
 
+    console.log(await contextPostgres.read({
+        username: 'jk'
+    }));
+
     const swaggerOptions = {
         info: {
             title: 'API Heroes - #CursoNodeBR',
