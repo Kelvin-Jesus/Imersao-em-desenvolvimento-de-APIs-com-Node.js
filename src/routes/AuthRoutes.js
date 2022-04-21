@@ -10,8 +10,6 @@ const USER = {
     password: '1234'
 }
 
-console.log(USER)
-
 class AuthRoutes extends BaseRoute {
 
     constructor(secret, db) {
@@ -34,7 +32,6 @@ class AuthRoutes extends BaseRoute {
                 description: 'Obter um token JWT',
                 notes: 'Loga o usuário',
                 validate: {
-                    failAction: this._failAction,
                     payload: {
                         username: Joi.string().required(),
                         password: Joi.string().required()
@@ -42,8 +39,6 @@ class AuthRoutes extends BaseRoute {
                 }
             },
             handler: async (request, headers) => {
-
-                console.log(request);
                 
                 const { username, password } = request.payload;
                 console.log(await this.db.read({
