@@ -92,7 +92,7 @@ async function main() {
     app.auth.default('jwt');
     app.route([
         ...mapRoutes(new HeroRoutes(context), HeroRoutes.methods()),
-        ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods()),
+        // ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods()),
         {
             path: '/login',
             method: 'POST',
@@ -107,7 +107,7 @@ async function main() {
                 
                 const { username, password } = request.payload;
                 
-                const [ user ] = await this.db.read({
+                const [ user ] = await contextPostgres.read({
                     username: username.toLowerCase()
                 });
 
@@ -124,7 +124,7 @@ async function main() {
                 const token = Jwt.sign({
                     username: username,
                     id: user.id
-                }, this.secret);
+                }, JWT_SECRET);
 
                 return {
                     token
