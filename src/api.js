@@ -50,7 +50,6 @@ async function main() {
     const context = new Context(new MongoDB(connection, HeroSchema));
 
     const connectionPostgres = await Postgres.connect();
-    console.log(connectionPostgres);
     const model = await Postgres.defineModel(connectionPostgres, UserSchema);
     const contextPostgres = new Context(new Postgres(connectionPostgres, model));
 
@@ -95,6 +94,11 @@ async function main() {
         ...mapRoutes(new HeroRoutes(context), HeroRoutes.methods()),
         ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods())
     ]);
+
+    return console.log(app.inject({
+        URL: '/login',
+        method: 'POST'
+    }));
 
     await app.start();
     console.log(`🔥Server Running on Port🔥: ${app.info.port}`);
