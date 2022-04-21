@@ -37,8 +37,8 @@ const HapiJwt = require('hapi-auth-jwt2');
 const JWT_SECRET = process.env.JWT_KEY;
 
 const app = new Hapi.Server({
-    port: process.env.PORT || 5000,
-    host: process.env.HOST || 'localhost'
+    port: process.env.PORT,
+    host: process.env.HOST
 });
 
 const mapRoutes = (instance, methods) => {
