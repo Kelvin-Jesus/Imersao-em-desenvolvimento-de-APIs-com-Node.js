@@ -34,11 +34,11 @@ const Inert = require('inert');
 const hapiSwagger = require('hapi-swagger');
 
 const HapiJwt = require('hapi-auth-jwt2');
-const { assert } = require('console');
 const JWT_SECRET = process.env.JWT_KEY;
 
 const app = new Hapi.Server({
-    port: process.env.PORT
+    port: process.env.PORT || 5000,
+    host: process.env.HOST || 'localhost'
 });
 
 const mapRoutes = (instance, methods) => {
