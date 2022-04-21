@@ -35,8 +35,6 @@ class AuthRoutes extends BaseRoute {
                 }
             },
             handler: async (request, headers) => {
-                console.log('aqui');
-                return true;
                 
                 const { username, password } = request.payload;
                 
