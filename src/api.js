@@ -100,11 +100,13 @@ async function main() {
         password: '1234'
     };
 
-    return console.log(await app.inject({
+    const result = await app.inject({
         url: '/login',
         method: 'POST',
         payload: USER
-    }));
+    });
+
+    return console.log(JSON.parse(result.payload));
 
     await app.start();
     console.log(`🔥Server Running on Port🔥: ${app.info.port}`);
