@@ -95,19 +95,6 @@ async function main() {
         ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods())
     ]);
 
-    const USER = {
-        username: 'jk',
-        password: '1234'
-    };
-
-    const result = await app.inject({
-        url: '/login',
-        method: 'POST',
-        payload: USER
-    });
-
-    return console.log(JSON.parse(result.payload));
-
     await app.start();
     console.log(`🔥Server Running on Port🔥: ${app.info.port}`);
 
