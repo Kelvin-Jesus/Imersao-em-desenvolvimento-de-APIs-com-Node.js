@@ -95,7 +95,7 @@ async function main() {
         ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods())
     ]);
 
-    return console.log(app.inject({
+    return console.log(await app.inject({
         URL: '/login',
         method: 'POST'
     }));
