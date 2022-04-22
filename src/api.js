@@ -28,6 +28,7 @@ const UserSchema = require('./db/strategies/postgres/userSchema');
 
 const HeroRoutes = require('./routes/HeroRoutes');
 const AuthRoutes = require('./routes/AuthRoutes');
+const UtilRoutes = require('./routes/UtilRoutes');
 
 const Vision = require('vision');
 const Inert = require('inert');
@@ -93,6 +94,7 @@ async function main() {
     app.route([
         ...mapRoutes(new HeroRoutes(context), HeroRoutes.methods()),
         ...mapRoutes(new AuthRoutes(JWT_SECRET, contextPostgres), AuthRoutes.methods()),
+        ...mapRoutes(new UtilRoutes(), UtilRoutes.methods())
     ]);
 
     await app.start();
