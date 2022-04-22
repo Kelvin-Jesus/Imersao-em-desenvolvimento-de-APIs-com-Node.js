@@ -4,7 +4,8 @@
   "description": "multi database project",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm i -g pm2",
+    "preinstall": "npm i -g pm2",
+    "postinstall": "npm run test:prod",
     "test": "nyc --reporter=html mocha --timeout 10000 --exit src/tests/*.js",
     "test:watch": "mocha src/tests/*.js -w",
     "test:prod": "cross-env NODE_ENV=prod npm test",
