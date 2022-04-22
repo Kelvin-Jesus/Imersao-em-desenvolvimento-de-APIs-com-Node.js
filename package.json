@@ -2,7 +2,7 @@
   "name": "07-multi-db",
   "version": "1.0.0",
   "description": "multi database project",
-  "main": "index.js",
+  "main": "src/api.js",
   "scripts": {
     "preinstall": "npm i -g pm2",
     "postinstall": "cross-env NODE_ENV=prod npm run test",
@@ -36,6 +36,6 @@
   },
   "devDependencies": {
     "nyc": "^15.1.0",
-    "mocha": "^5.2.0"
+    "mocha": "^9.2.2"
   }
 }
